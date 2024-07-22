@@ -3,18 +3,6 @@ provider "ibm" {
   ibmcloud_timeout = 60
 }
 
-##############################################################################
-
-provider "kubernetes" {
-  config_path = data.ibm_container_cluster_config.config.config_file_path
-}
-
-provider "kubectl" {
-  config_path = data.ibm_container_cluster_config.config.config_file_path
-}
-##############################################################################
-
-
 data "ibm_container_cluster_config" "config" {
   cluster_name_id   = var.cluster_id
   config_dir        = local.config_dir
